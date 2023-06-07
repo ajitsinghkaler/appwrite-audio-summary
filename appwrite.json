@@ -1,4 +1,21 @@
 {
     "projectId": "647498409faf781b76d1",
-    "projectName": "appwrite-hackathon"
+    "projectName": "appwrite-hackathon",
+    "functions": [
+        {
+            "$id": "647dbe287c79429dd29f",
+            "name": "transcribeAudio",
+            "runtime": "python-3.9",
+            "path": "functions/transcribeAudio",
+            "entrypoint": "src/index.py",
+            "ignore": [
+                "__pypackages__"
+            ],
+            "execute": ["users"],
+            "events": [
+            ],
+            "schedule": "",
+            "timeout": 300
+        }
+    ]
 }

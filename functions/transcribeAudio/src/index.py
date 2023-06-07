@@ -60,4 +60,4 @@ def main(req, res):
     summary = get_summary(transcript.text)
     
 
-    return res.json({"transcript": transcript.text, "summary": summary})
+    return res.json({"transcript": transcript.text, "summary": summary, "fileId": data["fileId"]})

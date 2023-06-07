@@ -11,9 +11,10 @@
             "ignore": [
                 "__pypackages__"
             ],
-            "execute": ["users"],
-            "events": [
+            "execute": [
+                "users"
             ],
+            "events": [],
             "schedule": "",
             "timeout": 300
         }

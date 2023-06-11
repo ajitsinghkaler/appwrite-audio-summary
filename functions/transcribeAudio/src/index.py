@@ -55,9 +55,14 @@ def main(req, res):
     data = json.loads(req.payload)
     
     # Get the file and transcribe
-    file = storage.get_file_view(data["bucketId"], data["fileId"])
-    transcript = openai.Audio.transcribe_raw("whisper-1", file, data["name"])
-    summary = get_summary(transcript.text)
-    
+    try:
+        file = storage.get_file_view(data["bucketId"], data["fileId"])
+        transcript = openai.Audio.transcribe_raw("whisper-1", file, data["name"])
+        summary = get_summary(transcript.text)
+    except Exception as e:
+        print(e)
+        return res.json({
+            "error": "an error occured while creating summary",
+        })
 
     return res.json({"transcript": transcript.text, "summary": summary, "fileId": data["fileId"]})
